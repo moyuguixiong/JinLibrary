@@ -1,23 +1,26 @@
 
-1��git���ز���
-git init //��ʼ�����زֿ⣬������ǰ�ļ������뵽git��������ǰ�ļ����»����һ��.git�������ļ���
-git add demo.txt  //���ļ����ӵ����زֿ�
-git add .   //����ǰ�ļ����µ������ļ������ӵ����زֿ⣬���������ӣ�����ʹ��*�ȷ��š�
-git commit -m "�ύ˵��"  //�����е��ļ��ύ�����زֿ⡣
-git commit -a -m "����˵��" //���ı���ļ����µ����زֿ�
-git rm �ļ����ļ����� -r -f  //gitɾ���ļ����ļ������ɾ��Ҫcommit�����زֿ⡣
+1、git本地操作
+git init //初始化本地仓库，即将当前文件夹纳入到git管理，当前文件夹下会出现一个.git的隐藏文件夹
+git add demo.txt  //将文件添加到本地仓库
+git add .   //将当前文件夹下的所有文件都添加到本地仓库，即批量添加，可以使用*等符号。
+git commit -m "提交说明"  //将所有的文件提交到本地仓库。
+git commit -a -m "更新说明" //将改变的文件更新到本地仓库
+git rm 文件或文件夹名 -r -f  //git删除文件或文件夹命令，删完要commit到本地仓库。
 
-ע�����Ӻ��ύ���زֿ������
-(1)�����ӣ��Ǳ�ʶ��Щ�ļ�Ҫ�ύ�����زֿ⡣
-(2)���ύ���ǽ���ʶ���ļ������ύ�����زֿ⣬ֻ���ύ�����زֿ���ļ��ſ����ύ��Զ�ֿ̲⣻û���ύ�����زֿ���ļ��������ύ��Զ�ֿ̲⡣
+注：添加和提交本地仓库的区别
+(1)、添加：是标识哪些文件要提交到本地仓库。
+(2)、提交：是将标识的文件真正提交到本地仓库，只有提交到本地仓库的文件才可以提交到远程仓库；没有提交到本地仓库的文件，不能提交到远程仓库。
 
-2��Զ�ֿ̲����
-git remote -v  //��ѯ��ǰ�ļ��ж�Ӧ��Զ�ֿ̲�(û�����Ӿ�û�У��ɶ�Ӧ���)
-git remote add �ֿ���� git@github.com:moyuguixiong/Hibernate_Example.git //����ǰ�ļ�������Զ�ֿ̲⡣
-git fetch �ֿ���� master //��Զ�ֿ̲�Ĵ�����ȡ������
-git log -p master.. �ֿ����/master  //�Ƚϱ��زֿ�����Զ�̴��������(fetch�����Ĳֿ�ϲ������زֿ�֮ǰ)
-git merge �ֿ����/master //�����ش���ϲ������زֿ�
-git pull �ֿ���� master  //�൱��ִ��fetch+merge
-git push -u �ֿ���� master //�����زֿ����ϲ���Զ�ֿ̲⡣
+2、远程仓库操作
+git remote 查看所有别名
+git remote rename 旧仓库别名 新仓库别名  #重命名别名
+git remote rm 仓库别名      #删除仓库别名
+git remote -v  //查询当前文件夹对应的远程仓库(没有添加就没有，可对应多个)
+git remote add 仓库别名 git@github.com:moyuguixiong/Hibernate_Example.git //给当前文件夹添加远程仓库。
+git fetch 仓库别名 master //将远程仓库的代码拉取到本地
+git log -p master.. 仓库别名/master  //比较本地仓库代码和远程代码的区别(fetch下来的仓库合并到本地仓库之前)
+git merge 仓库别名/master //将本地代码合并到本地仓库
+git pull 仓库别名 master  //相当于执行fetch+merge
+git push -u 仓库别名 master //将本地仓库代码合并到远程仓库。
 
 
